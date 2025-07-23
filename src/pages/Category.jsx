@@ -5,7 +5,7 @@ import Categorylist from '../component/Categorylist';
 import axiosConfig from '../utill/axiosConfig';
 import { API_ENDPOINT } from '../utill/apiEndpoint';
 import { toast } from 'react-toastify';
-import Model from '../component/Model ';
+import Model from '../component/Model';
 import Addcategoryform from '../component/Addcategoryform';
 
 export default function Category() {
