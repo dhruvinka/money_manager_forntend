@@ -7,7 +7,7 @@ import axiosConfig from '../utill/axiosConfig';
 import { LoaderCircleIcon } from 'lucide-react';
 import { API_ENDPOINT } from '../utill/apiEndpoint';
 import uploadProfileImage from '../utill/uploadprofileimage';
-import ProfilePhoto from '../component/profilephoto';
+import ProfilePhoto from '../component/Profilephoto';
 
 export default function Signup() {
     const [fullName, setFullName] = useState("");
