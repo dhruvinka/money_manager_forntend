@@ -1,7 +1,6 @@
 import Deashboard from "../component/Deashboard";
 
-// https://money-rwal.onrender.com
-export const BASE_URL = "https://money-rwal.onrender.com";
+export const BASE_URL = "https://money-rwal.onrender.com/";
 
 
 const CLOUDNARY_CLOUDNAME = "dgbiowyya"
