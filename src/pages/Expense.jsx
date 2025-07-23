@@ -3,7 +3,7 @@ import Deashboard from '../component/Deashboard';
 import axiosConfig from '../utill/axiosConfig';
 import { API_ENDPOINT } from '../utill/apiEndpoint';
 import { Plus } from 'lucide-react';
-import Model from '../component/model';
+import Model from '../component/Model';
 import AddExpenseForm from '../component/AddExpenseForm';
 import Expenselist from '../component/Expenselist';
 import { toast } from 'react-toastify';

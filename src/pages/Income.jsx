@@ -4,7 +4,7 @@ import axiosConfig from '../utill/axiosConfig';
 import { API_ENDPOINT } from '../utill/apiEndpoint';
 import Incomelist from '../component/Incomelist';
 import { Plus } from 'lucide-react';
-import Model from '../component/model';
+import Model from '../component/Model';
 import AddIncomeForm from '../component/AddIncomeForm';
 import { toast } from 'react-toastify';
 import Incomeoverview from '../component/Incomeoverview';
