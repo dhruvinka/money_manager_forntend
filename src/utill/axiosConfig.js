@@ -4,41 +4,46 @@ import { BASE_URL } from "./apiEndpoint";
 const axiosConfig = axios.create({
     baseURL: BASE_URL,
     headers: {
-        "Content-Type": "application/json",
         Accept: "application/json"
+        // ❌ DO NOT set Content-Type globally
     }
 });
 
-const excludeEndpoint = ["/login", "/encode", "/health", "/activate", "/register","/email/send"];
+// ✅ Public endpoints (NO TOKEN)
+const excludeEndpoint = [
+    "/login",
+    "/register",
+    "/activate",
+    "/health",
+    "/encode",
+    "/email" // ✅ VERY IMPORTANT
+];
 
+// Request interceptor
 axiosConfig.interceptors.request.use((config) => {
-    const shouldSkipToken = excludeEndpoint.some((endpoint) => config.url?.includes(endpoint));
+    const shouldSkipToken = excludeEndpoint.some(endpoint =>
+        config.url?.includes(endpoint)
+    );
 
     if (!shouldSkipToken) {
-        const accessToken = localStorage.getItem("token");
-        if (accessToken) {
-            config.headers.Authorization = `Bearer ${accessToken}`;
+        const token = localStorage.getItem("token");
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
         }
     }
+
     return config;
-}, (error) => {
-    return Promise.reject(error);
-});
+}, error => Promise.reject(error));
 
 // Response interceptor
-axiosConfig.interceptors.response.use((response) => {
-    return response;
-}, (error) => {
-    if (error.response) {
-        if (error.response.status === 401) {
+axiosConfig.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response?.status === 401) {
             window.location.href = "/login";
-        } else if (error.response.status === 500) {
-            console.error("Server error ....");
         }
-    } else if (error.code === "ECONNATONABORTED") {
-        console.error("Request timeout..");
+        return Promise.reject(error);
     }
-    return Promise.reject(error);
-});
+);
 
 export default axiosConfig;
