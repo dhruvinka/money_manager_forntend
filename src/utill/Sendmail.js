@@ -67,8 +67,8 @@ export async function sendEmailWithPdf(transactions, type, userEmail) {
 
     try {
 
-      const res = await axiosConfig.get(API_ENDPOINT.EMAIL);
-        console.log(response.data);
+      const res = await axiosConfig.post(API_ENDPOINT.EMAIL, formData);
+        console.log(res.data);
     } catch (error) {
         console.log(error);
     }
