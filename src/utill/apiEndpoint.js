@@ -1,5 +1,6 @@
 import Deashboard from "../component/Deashboard";
 
+export const BASE_URL1 = "http://localhost:8080/";
 export const BASE_URL = "https://money-rwal.onrender.com/";
 
 
