@@ -3,6 +3,7 @@ import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { API_ENDPOINT } from './apiEndpoint';
 import axiosConfig from './axiosConfig';
+import { toast } from 'react-toastify';
 
 export async function sendEmailWithPdf(transactions, type, userEmail) {
     const doc = new jsPDF();
